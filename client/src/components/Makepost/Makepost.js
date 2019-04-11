@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pageswitch from "../../components/Pageswitch/Pageswitch";
+// import Pageswitch from "../../components/Pageswitch/Pageswitch";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import SubwayList from "../../components/SubwayList/SubwayList";
@@ -83,7 +83,7 @@ export default class Makepost extends Component {
             <div className="wrapper">
                 <div className="App-body">
                     <span className="balancePageSwitch bg-dark text-light">
-                        <Pageswitch />
+                        {/* <Pageswitch /> */}
                     </span>
                     <div className="makePostPageBox bg-dark">
                         <Form className="m-2 p-4 bg-dark text-light">

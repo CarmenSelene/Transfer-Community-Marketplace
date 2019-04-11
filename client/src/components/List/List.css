@@ -1,0 +1,31 @@
+.list-overflow-container {
+  border: 1px #DDDDDD solid;
+  border-radius: 15px;
+  overflow-x: hidden;
+}
+
+.list-overflow-container ul {
+  margin: 2;
+}
+
+.list-overflow-container li {
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
+}
+
+.list-overflow-container li * {
+  cursor: cell;
+}
+
+.list-overflow-container li a {
+  color: #2A878C;
+}
+
+.list-overflow-container li:first-child {
+  border-top: none;
+}
+
+.list-overflow-container li:last-child {
+  border-bottom: none;
+}

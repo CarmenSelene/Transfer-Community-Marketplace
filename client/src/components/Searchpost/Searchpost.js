@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Pageswitch from "../../components/Pageswitch/Pageswitch";
+// import Pageswitch from "../../components/Pageswitch/Pageswitch";
 import Searchresults from "../../components/Seachresults/Searchresults";
 import SubwayList from "../../components/SubwayList/SubwayList";
 import CategoryList from "../../components/CategoryList/CategoryList";
@@ -77,7 +77,7 @@ export default class Searchpost extends Component {
             <div className="wrapper">
                 <div className="App-body">
                     <span className="balancePageSwitch bg-dark text-light">
-                        <Pageswitch />
+                        {/* <Pageswitch /> */}
                         <Form className="searchInputForm">
                             <div className="formItem">
                                 <Form.Control as="select"

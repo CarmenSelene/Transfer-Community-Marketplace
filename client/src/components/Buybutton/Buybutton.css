@@ -1,0 +1,7 @@
+A.buyLink { color: black; }
+
+A:link.buyLink { text-decoration: none }
+
+A:active.buyLink { text-decoration: none }
+
+A:hover.buyLink { background-color: transparent; text-decoration: underline; border: 0px; }
