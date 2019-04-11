@@ -1,0 +1,61 @@
+ .App-navbar {
+    padding: 22px;
+    position: sticky;
+    background-color:rgb(131, 194, 199);
+    background-image: url('./homeLink/test4.jpg');
+    background-size: cover;
+    min-height: 6vh;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .mainSiteTitle {
+    letter-spacing: 12px;
+    font-family: 'ZCOOL XiaoWei', serif;
+    text-shadow: 7px 2px rgb(0, 0, 0);
+    font-size: 70px;
+  }
+
+  .navbar-text {
+    font-size: 14px;
+  }
+
+  .nav-link {
+    color: white;
+    font-size: 35px;
+    letter-spacing: 5px;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-weight: bolder;
+  }
+  
+  li.menuLink {
+    list-style-type: none;
+    margin-left: 120px;
+    margin-right: 5px;
+    display: inline;
+    position: sticky;
+  }
+  
+  A:hover.logo { text-decoration: none; }
+  A.menuLink { color: white }
+  A:link.menuLink { text-decoration: none; padding: 15px;}
+  A:active.menuLink { text-decoration: none; }
+  A:hover.menuLink { text-decoration: none; }
+
+  @media only screen and (max-width: 991px) {
+    .mainSiteTitle {
+      letter-spacing: 12px;
+      font-family: 'ZCOOL XiaoWei', serif;
+      text-shadow: 7px 2px rgb(0, 0, 0);
+      font-size: 60px;
+    }
+  }
+
+  @media only screen and (max-width: 479px) {
+    .mainSiteTitle {
+      letter-spacing: 10px;
+      font-family: 'ZCOOL XiaoWei', serif;
+      text-shadow: 7px 2px rgb(0, 0, 0);
+      font-size: 35px;
+    }
+  }

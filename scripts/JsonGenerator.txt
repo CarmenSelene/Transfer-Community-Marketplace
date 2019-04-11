@@ -1,0 +1,54 @@
+https://www.json-generator.com/
+
+[
+  '{{repeat(1000)}}',
+  {
+    description: ['{{lorem(6, "words")}}'],
+    price: '{{integer(20, 40)}}',
+    buyerId: function (tags) {
+      var getID = [
+        '0', 
+        '0'
+      ];
+      return getID[tags.integer(0, getID.length - 1)];
+    },
+    category: function (tags) {
+      var categories = [
+        'Free Food',
+		'Free Stuff',
+		'Help Needed',
+		'Help Offered',
+		'$ Food',
+		'$ Stuff',
+		'$ Services'
+      ];
+      return categories[tags.integer(0, categories.length - 1)];
+    },
+    location: function (tags) {
+      var locations = [
+        'Bathurst', 
+        'Bay', 
+        'Bloor-Yonge', 
+        'College', 
+        'Dundas', 
+        'Dupont', 
+        'King', 
+        'Queen', 
+        'Sherbourne',
+        'Spadina', 
+        'St Clair', 
+        'St George', 
+        'Wellesley'
+      ];
+      return locations[tags.integer(0, locations.length - 1)];
+    },
+    "contactNo": "5555555555",
+    "expiryDate": {
+        "$date": "2019-06-09T00:00:00.000Z"
+    },
+    "User": {
+        "$oid": "5c982cd4a77d8b002a78a09d"
+    },
+    "__v": 0
+  }
+]

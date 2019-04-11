@@ -1,0 +1,11 @@
+.logomap {
+    max-width: 400px;
+    padding: 20px;
+    margin: 5px;
+}
+
+.contactContainer {
+    width: 80%;
+    max-width: 800px;
+    border-radius: 15px;
+}

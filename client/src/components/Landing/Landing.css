@@ -1,0 +1,25 @@
+.landingTitle {
+    font-size: 5vh;
+    display: inline-block;
+    text-align: center;
+}
+
+.landingChoice {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 45px;
+    width: 100%;
+    padding: 5px;
+}
+
+.landingBody {
+    font-size: 22px;
+}
+
+.landingInfo {
+    display: inline-block;
+    min-height: 26vh;
+}
+
+
+

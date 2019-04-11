@@ -1,0 +1,20 @@
+.searchInputForm {
+    display: inline-flex;
+    padding: 5px;
+    margin: 5px;
+}
+
+.formItem {
+    margin: 1px;
+    padding: 4px;
+}
+
+.searchSubmit {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin: 1px;
+}
+
+.searchResultsBody {
+    min-height: 50vh;
+}

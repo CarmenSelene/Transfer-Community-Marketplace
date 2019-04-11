@@ -1,0 +1,43 @@
+.hiddenValue {
+    display: none;
+}
+
+.submitNewPost {
+    text-align: center;
+    margin: 15px;
+}
+
+.descriptionBox {
+    display: inline;
+}
+
+.makePostPageBox {
+    margin: 15px;
+    width: 80%;
+    max-width: 800px;
+    display: inline-block;
+}
+
+.balancePageSwitch {
+    display: inline-block;
+    margin-bottom: 15px;
+    min-width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+    .makePostPageBox {
+        margin: 15px;
+        max-width: 550px;
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .makePostPageBox {
+        margin: 15px;
+        max-width: 350px;
+        display: inline-block;
+    }
+}
+
+

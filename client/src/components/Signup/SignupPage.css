@@ -1,0 +1,83 @@
+.hideMe {
+    display: none;
+}
+
+.homepageToggleBar {
+  width: 80%;
+  margin: auto;
+}
+
+.signupform-input {
+  margin: 35px;
+  margin-bottom: 5px;
+}
+
+.pageToggleButton {
+  width: 400px;
+  padding: 1vh;
+  margin-bottom: 15px;
+  background-color: rgb(19, 203, 228);
+  color: white;
+  padding: 14px 40px;
+  border: 2px solid white;
+  border-radius: 12px;
+}
+
+.signupSpacer {
+    padding: 3px;
+    background-color: white; 
+    border-radius: 25px;
+    margin: 0px;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+button.submitButton {
+  margin: 3px;
+  border-radius: 15px;
+  background-color:#B02070;
+  color: white;
+  padding: 10px 40px;
+}
+
+.homepageToggleButton {
+  margin: 2vh;
+  border-radius: 15px;
+  background-color:#B02070;
+  color: white;
+  padding: 10px 40px;
+}
+
+P.alreadyMember {
+ display: inline-block;
+ font-size: 25px;
+  }
+
+input.form-control {
+      background-color:rgba(19, 203, 228,0.2);
+      border: 2px solid rgb(19, 203, 228);
+      padding: 15px;
+      display: inline-block;
+      margin-bottom: 10px;
+      border: none;
+  }
+
+.landingBar {
+  background-color: white;
+  font-size: calc(12px + 2vh);
+  width: 445px;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 25px;
+  }
+
+@media only screen and (max-width: 991px) {
+    .landingBar {
+      background-color: white;
+      font-size: 32px;
+      width: 300px;
+      margin: auto;
+      margin-top: 15px;
+      border-radius: 25px;
+      }
+    }

@@ -1,0 +1,33 @@
+.formInput {
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.signupSpacer {
+    margin-bottom: 45px;
+    width: 60%;
+    max-width: 800px;
+}
+
+button.submitButton {
+    margin: 5px;
+    border-radius: 15px;
+    background-color:#B02070;
+    color: white;
+    padding: 10px 40px;
+  }
+
+@media only screen and (max-width: 991px) {
+.signupSpacer {
+    margin-bottom: 45px;
+    width: 450px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .signupSpacer {
+        margin-bottom: 45px;
+        width: 300px;
+        }
+    }
