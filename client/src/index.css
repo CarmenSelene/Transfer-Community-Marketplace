@@ -1,5 +1,12 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  background-color: #cccccc;
+  background-image: url("./pages/media/fullBacker.jpg");
+  background-color: #cccccc;
+  width: 100%;
+  background-position: center;
+  background-repeat: repeat-y;
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
 }

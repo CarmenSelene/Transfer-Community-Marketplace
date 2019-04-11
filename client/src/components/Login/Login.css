@@ -1,0 +1,26 @@
+.landingBar {
+    text-align: center;
+    padding: 5px;
+}
+
+.landingChoice {
+    font-size: 16px;
+}
+
+.landingBody {
+    font-size: 18px;
+}
+
+.signupSpacer {
+    padding: 3px;
+    background-color: white; 
+    border-radius: 25px;
+    margin: 0px;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+.signupform-input {
+    margin: 35px;
+    margin-bottom: 5px;
+  }

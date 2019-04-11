@@ -73,24 +73,20 @@ export default class Home extends Component {
     render() {
         return (
             <div className="wrapper">
-                <header className="App-header">
-                    <div className="landingBar bg-dark">
-                        <h3 className="text-light d-inline">Already A Member?</h3>
-                        <Link to={'/'}><Button className="homepageToggleButton text-light d-inline">Go To Login</Button></Link>
-                    </div>
-                </header>
-                <div className="App-body">
-                    <Newuserform
-                        firstname={this.state.firstname}
-                        lastname={this.state.lastname}
-                        password={this.state.password}
-                        email={this.state.email}
-                        location={this.state.location}
-                        confirmpassword={this.state.confirmpassword}
-                        handleNewUserFormSubmit={this.handleNewUserFormSubmit}
-                        handleInputChange={this.handleInputChange}
-                    />
+                <div className="landingBar bg-dark">
+                    <h3 className="text-light d-inline">Already A Member?</h3>
+                    <Link to={'/'}><Button className="homepageToggleButton text-light d-inline">Go To Login</Button></Link>
                 </div>
+                <Newuserform
+                    firstname={this.state.firstname}
+                    lastname={this.state.lastname}
+                    password={this.state.password}
+                    email={this.state.email}
+                    location={this.state.location}
+                    confirmpassword={this.state.confirmpassword}
+                    handleNewUserFormSubmit={this.handleNewUserFormSubmit}
+                    handleInputChange={this.handleInputChange}
+                />
             </div>
         )
     }

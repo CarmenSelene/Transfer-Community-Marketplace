@@ -2,18 +2,48 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
 .App-header {
-  background-color: #222;
-  max-height: 75px;
-  padding: 20px;
   color: white;
+  display: inline-block;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
-.App-intro {
-  font-size: large;
+.App-navbar {
+  padding: 22px;
+  position: sticky;
+  background-color:rgb(131, 194, 199);
+  background-image: url('../src/components/Navbar/media/test4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 6vh;
+  color: white;
+  text-transform: uppercase;
+  margin: 0px;
 }
+
+.App-body {
+  text-align: center;
+  min-height: 65vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+.App-footer {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  margin: 0px;
+  margin-top: 60px;
+  background-color:rgb(121, 104, 122);
+  background-image: url('../src/components/Navbar/media/test4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0px;
+  }
+
+  .wrapper {
+    margin: 0px;
+    padding: 0px;
+  }

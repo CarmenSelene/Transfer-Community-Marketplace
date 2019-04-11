@@ -4,6 +4,7 @@ import "./Contact.css";
 function Contact() {
     return (
         <div className="wrapper mt-5">
+            <div className="App-body">
                 <div className="bg-dark px-5 m-2 d-inline-block contactContainer">
                     <h1 className="p-4 text-light"><strong>Contact Us</strong></h1>
                     <div className="alert alert-light d-inline-block">
@@ -27,6 +28,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
+        </div>
     );
 }
 

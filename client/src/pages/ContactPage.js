@@ -1,10 +1,19 @@
 import React from "react";
 import auth from "../components/auth";
+import Contact from "../pages/Contact/Contact";
 
-export const Contact = (props) => {
+export const ContactPage = (props) => {
     return (
         <div className="wrapper">
-            <h2>Contact Us</h2>
+            <button
+                onClick={() => {
+                    auth.login(() => {
+                        props.history.push("/landing");
+                    });
+                }}
+            >
+                Login
+            </button>
             <button
                 onClick={() => {
                     auth.logout(() => {
@@ -14,6 +23,7 @@ export const Contact = (props) => {
             >
                 Logout
             </button>
+            <Contact />
         </div>
     );
 };

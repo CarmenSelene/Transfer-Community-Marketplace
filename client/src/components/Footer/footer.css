@@ -1,0 +1,15 @@
+.footerImg {
+    width: 200px;
+    display: inline-flex;
+    float: left;
+    padding: 15px;
+    border-radius: 65px;
+    opacity: 0.65;
+}
+
+.footerSocial {
+    width: 50px; 
+    display: inline-block;
+    vertical-align: middle;
+}
+

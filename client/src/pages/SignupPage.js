@@ -1,11 +1,11 @@
 import React from "react";
-import auth from "./auth";
+import auth from "../components/auth";
+import Signup from "../components/Signup/SignupPage";
 
-export const LandingPage = (props) => {
+export const SignupPage = (props) => {
     return (
         <div className="wrapper">
-            <h2>You Are Logged In</h2>
-            <button
+        <button
                 onClick={() => {
                     auth.login(() => {
                         props.history.push("/landing");
@@ -23,6 +23,7 @@ export const LandingPage = (props) => {
             >
                 Logout
             </button>
+            <Signup />
         </div>
     );
 };
