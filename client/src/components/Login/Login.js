@@ -12,7 +12,6 @@ export default class Login extends Component {
             email: "",
             password: "",
             currentUser: "",
-            auth: false,
             activePost: [],
             activeBuys: []
         };
@@ -56,7 +55,8 @@ export default class Login extends Component {
                     throw new Error(res.data.message);
                 }
                 console.log("user Exists and login Successful");
-                this.setState({ auth: true, currentUser: res.data._id })
+                this.setState({ currentUser: res.data._id })
+
             })
             .then(() => {
                 let currUser = this.state.currentUser;

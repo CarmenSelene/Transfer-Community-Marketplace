@@ -7,7 +7,8 @@ import auth from "../../components/auth";
 import "./Landing.css";
 
 export const Landing = (props) => {
-        return (<div className="wrapper">
+    return (
+        <div className="wrapper">
             <h2>You Are Logged In</h2>
             <button
                 onClick={() => {
@@ -47,4 +48,4 @@ export const Landing = (props) => {
                 </div>
             </div>
         </div>)
-    }
+}

@@ -4,6 +4,7 @@ class Auth {
     }
 
     login(cb) {
+// auth goes here
         this.authenticated = true;
         cb();
     }
