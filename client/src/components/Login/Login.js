@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import { Loginform } from "./Loginform";
+import API from "../../utils/API";
 import auth from "../auth";
 import "./Login.css";
 
-export default class Login extends Component {
+class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,32 +44,49 @@ export default class Login extends Component {
             email: username,
             password: password
         }
-        auth.login(whichUser);
+        API.loginUser(whichUser)
+            .then(res => {
+                console.log(res.data);
+                if (res.data === null) {
+                    alert("Check your user credentials");
+                    this.authenticated = false;
+                    console.log("authenticated is  ", + this.authenticated);
+                } else {
+                    console.log("user Exists and login Successful");
+                    this.authenticated = true;
+                    console.log("authenticated is  ", + this.authenticated);
+                    auth.login(() => {
+                        this.props.history.push("/landing");
+                    });            
+                }
+            }).catch(err => console.log(err));
     }
 
-resetform = () => {
-    this.setState({
-        email: "",
-        password: "",
-        currentUser: ""
-    });
+    resetform = () => {
+        this.setState({
+            email: "",
+            password: "",
+            currentUser: ""
+        });
+    }
+
+    render() {
+        return (
+            <div className="wrapper">
+                <div className="landingBar bg-dark">
+                    <h3 className="text-light d-inline">Need To Register?</h3>
+                    <Link to={'/signup'}><Button className="homepageToggleButton text-light d-inline">Create Account</Button></Link>
+                </div>
+                <Loginform
+                    email={this.state.email}
+                    password={this.state.password}
+                    handleLoginFormSubmit={this.handleLoginFormSubmit}
+                    handleInputChange={this.handleInputChange}
+                />
+            </div>
+        );
+    }
 }
 
-render() {
-    return (
-        <div className="wrapper">
-            <div className="landingBar bg-dark">
-                <h3 className="text-light d-inline">Need To Register?</h3>
-                <Link to={'/signup'}><Button className="homepageToggleButton text-light d-inline">Create Account</Button></Link>
-            </div>
-            <Loginform
-                email={this.state.email}
-                password={this.state.password}
-                handleLoginFormSubmit={this.handleLoginFormSubmit}
-                handleInputChange={this.handleInputChange}
-            />
-        </div>
-    );
-}
-}
+export default withRouter(Login);
 
