@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import API from "../../utils/API";
 import "./SignupPage.css";
 
-export default class Home extends Component {
+export default class SignupPage extends Component {
     constructor(props) {
         super(props);
         this.state = {

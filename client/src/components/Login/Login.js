@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import {Loginform} from "./Loginform";
+import { Loginform } from "./Loginform";
 import API from "../../utils/API";
+import auth from "../auth";
 import "./Login.css";
 
 export default class Login extends Component {
@@ -12,12 +13,8 @@ export default class Login extends Component {
             email: "",
             password: "",
             currentUser: "",
-            activePost: [],
-            activeBuys: []
         };
         this.resetform = this.resetform.bind(this);
-        this.getActivePosts = this.getActivePosts.bind(this);
-        this.getActiveBuys = this.getActiveBuys.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleLoginFormSubmit = this.handleLoginFormSubmit.bind(this);
     }
@@ -51,43 +48,14 @@ export default class Login extends Component {
             .then(res => {
                 if (res.data.status === "error") {
                     alert("Check your user credentials");
-                    this.setState({ auth: false });
                     throw new Error(res.data.message);
                 }
                 console.log("user Exists and login Successful");
-                this.setState({ currentUser: res.data._id })
-
             })
             .then(() => {
-                let currUser = this.state.currentUser;
-                console.log("Current user is " + currUser);
-                this.getActivePosts(currUser);
-
-            })
-            .catch(err => console.log(err));
-    }
-
-    getActivePosts = (currUser) => {
-        API.getUserPosts(currUser)
-            .then(res => {
-                if (res.data.status === "error") {
-                    alert("No active posts for the user");
-                    throw new Error(res.data.message);
-                }
-                this.setState({ activePost: res.data });
-                this.getActiveBuys(currUser);
-            })
-            .catch(err => console.log(err));
-    }
-
-    getActiveBuys = (currUser) => {
-        API.getUserBuys(currUser)
-            .then(res => {
-                if (res.data.status === "error") {
-                    alert("No active buys for the user");
-                    throw new Error(res.data.message);
-                }
-                this.setState({ activeBuys: res.data });
+                auth.login(() => {
+                    this.history.push("/landing");
+                })
             })
             .catch(err => console.log(err));
     }
@@ -104,7 +72,7 @@ export default class Login extends Component {
         });
     }
 
-    renderPage = () => {
+    render() {
         return (
             <div className="wrapper">
                 <div className="landingBar bg-dark">
@@ -119,10 +87,6 @@ export default class Login extends Component {
                 />
             </div>
         );
-    };
-
-    render() {
-        return this.renderPage();
     }
 }
 

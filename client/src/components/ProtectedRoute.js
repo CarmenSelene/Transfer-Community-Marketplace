@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import auth from "../components/auth";
 
 export const ProtectedRoute = ({ component: Component, ...rest }) => {
-    return (
+return (
         <Route
             {...rest}
             render={props => {

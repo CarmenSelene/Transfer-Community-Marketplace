@@ -61,7 +61,7 @@ function Newuserform(props) {
             className="form-control bg-light"
             id="location">
             <option defaultValue="Select">Nearest Subway</option>
-            {SubwayList.map(res => (<option value={res}>{res}</option>))}
+            {SubwayList.map(res => (<option key={res} value={res}>{res}</option>))}
           </Form.Control>
           <button onClick={props.handleNewUserFormSubmit} className="submitButton">
             Register

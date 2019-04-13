@@ -2,25 +2,22 @@ import axios from "axios";
 
 export default {
   //Search for users based on username
-  loginUser: function (usercheck) {
-    console.log(usercheck);
-
+  loginUser: function (userID) {
+    console.log(userID);
     return axios.get("/api/user", {
-      params: usercheck
-  });
-},
+      params: userID
+    });
+  },
   // Gets the posts with the given Category and Location excluding the user's own posts
   getPosts: function (getPost) {
-    return axios.get("/api/post",{
+    return axios.get("/api/post", {
       params: getPost
     });
   },
-
   getUserPosts: function (curruser) {
     console.log("Current user in API getUserPosts is" + curruser);
     return axios.get("/api/post/" + curruser)
   },
-
   getUserBuys: function (curruser) {
     console.log("Current user in API getUserBuys is" + curruser);
     return axios.get("/api/buy/" + curruser)
@@ -35,6 +32,5 @@ export default {
   saveUser: function (UserData) {
     return axios.post("/api/user", UserData);
   }
-
 };
 
