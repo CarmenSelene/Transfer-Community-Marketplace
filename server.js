@@ -19,7 +19,7 @@ app.listen(PORT, function() {
 });*/
 
 const express = require("express");
-var logger = require("morgan");
+const logger = require("morgan");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -37,7 +37,7 @@ app.use(routes);
 app.use(logger("dev"));
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://TransferAdmin:TransferAdmin123@ds225375.mlab.com:25375/heroku_8kv8m240" , {useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://TransferAdmin:TransferAdmin123@ds161016.mlab.com:61016/heroku_t0tkjwwm" , {useNewUrlParser: true });
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

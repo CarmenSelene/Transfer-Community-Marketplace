@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import { Loginform } from "./Loginform";
-import API from "../../utils/API";
 import auth from "../auth";
 import "./Login.css";
 
@@ -12,7 +11,7 @@ export default class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            currentUser: "",
+            currentUser: ""
         };
         this.resetform = this.resetform.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,53 +39,36 @@ export default class Login extends Component {
     }
 
     checkUserLogin = (username, password) => {
-        let usercheck = {
+        const whichUser = {
             email: username,
             password: password
         }
-        API.loginUser(usercheck)
-            .then(res => {
-                if (res.data.status === "error") {
-                    alert("Check your user credentials");
-                    throw new Error(res.data.message);
-                }
-                console.log("user Exists and login Successful");
-            })
-            .then(() => {
-                auth.login(() => {
-                    this.history.push("/landing");
-                })
-            })
-            .catch(err => console.log(err));
+        auth.login(whichUser);
     }
 
-    resetform = () => {
-        this.setState({
-            firstname: "",
-            lastname: "",
-            email: "",
-            location: "",
-            password: "",
-            confirmpassword: "",
-            userCheck: {}
-        });
-    }
+resetform = () => {
+    this.setState({
+        email: "",
+        password: "",
+        currentUser: ""
+    });
+}
 
-    render() {
-        return (
-            <div className="wrapper">
-                <div className="landingBar bg-dark">
-                    <h3 className="text-light d-inline">Need To Register?</h3>
-                    <Link to={'/signup'}><Button className="homepageToggleButton text-light d-inline">Create Account</Button></Link>
-                </div>
-                <Loginform
-                    email={this.state.email}
-                    password={this.state.password}
-                    handleLoginFormSubmit={this.handleLoginFormSubmit}
-                    handleInputChange={this.handleInputChange}
-                />
+render() {
+    return (
+        <div className="wrapper">
+            <div className="landingBar bg-dark">
+                <h3 className="text-light d-inline">Need To Register?</h3>
+                <Link to={'/signup'}><Button className="homepageToggleButton text-light d-inline">Create Account</Button></Link>
             </div>
-        );
-    }
+            <Loginform
+                email={this.state.email}
+                password={this.state.password}
+                handleLoginFormSubmit={this.handleLoginFormSubmit}
+                handleInputChange={this.handleInputChange}
+            />
+        </div>
+    );
+}
 }
 

@@ -23,7 +23,7 @@ export const SignupPage = (props) => {
             >
                 Logout
             </button>
-            <Signup />
+            <Signup {...props}/>
         </div>
     );
 };

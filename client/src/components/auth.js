@@ -1,30 +1,28 @@
 import API from "../utils/API";
-//import { isNull } from "util";
+
 class Auth {
     constructor() {
         this.authenticated = false;
     }
 
-    login(cb) {
+    login({email, password}) {
         let usercheck = {
-            email: 'pavani.vithala@gmail.com',
-            password: 'Manu'
+            email: email,
+            password: password
         }
         API.loginUser(usercheck)
-        .then(res => {
-            console.log(res.data);
-            if (res.data === null) {
-                alert("Check your user credentials");
-                this.authenticated = false;
-                console.log("authenticated is  ", +this.authenticated);
-               
-            }else{
-             console.log("user Exists and login Successful");
-           // this.setState({ auth: true, currentUser: res.data._id })
-           this.authenticated = true;
-           console.log("authenticated is  ", +this.authenticated);
-            }
-        }).catch(err => console.log(err));
+            .then(res => {
+                console.log(res.data);
+                if (res.data === null) {
+                    alert("Check your user credentials");
+                    this.authenticated = false;
+                    console.log("authenticated is  ", + this.authenticated);
+                } else {
+                    console.log("user Exists and login Successful");
+                    this.authenticated = true;
+                    console.log("authenticated is  ", + this.authenticated);
+                }
+            }).catch(err => console.log(err));
     }
 
     logout(cb) {
