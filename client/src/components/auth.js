@@ -1,4 +1,5 @@
-import API from "../../utils/API";
+import API from "../utils/API";
+//import { isNull } from "util";
 class Auth {
     constructor() {
         this.authenticated = false;
@@ -6,31 +7,34 @@ class Auth {
 
     login(cb) {
         let usercheck = {
-            email: "pavani.vithala@gmail.com",
-            password: "Manu"
+            email: 'pavani.vithala@gmail.com',
+            password: 'Manu'
         }
         API.loginUser(usercheck)
         .then(res => {
-            if (res.data.status === "error") {
+            console.log(res.data);
+            if (res.data === null) {
                 alert("Check your user credentials");
                 this.authenticated = false;
-                throw new Error(res.data.message);
+                console.log("authenticated is  ", +this.authenticated);
+               
             }else{
-                console.log("user Exists and login Successful");
+             console.log("user Exists and login Successful");
            // this.setState({ auth: true, currentUser: res.data._id })
-            this.authenticated = true;
+           this.authenticated = true;
+           console.log("authenticated is  ", +this.authenticated);
             }
+        }).catch(err => console.log(err));
+        
             
-        })
-        .then(() => {
-            //let currUser = this.state.currentUser;
-            console.log("authenticated is  ", +this.authenticated);
+            
+            
             
 
-        })
-        .catch(err => console.log(err)); 
         
-       // cb();
+         
+        
+      
     }
 
     logout(cb) {

@@ -25,6 +25,7 @@
     "if-env": "^1.0.4",
     "moment": "^2.24.0",
     "mongoose": "^5.5.0",
+    "morgan": "^1.9.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-router-dom": "^5.0.0"
