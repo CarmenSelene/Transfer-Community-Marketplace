@@ -11,6 +11,7 @@ module.exports = {
   },
 
   findOne: function(req, res) {
+    console.log("Entered findOne function");
     console.log(req.query);
     db.User
     .findOne({email : req.query.email, password : req.query.password })
