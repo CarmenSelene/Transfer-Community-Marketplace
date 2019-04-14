@@ -15,7 +15,8 @@ export default class Mybuys extends Component {
   }
 
   componentDidMount() {
-    this.getActiveBuys();
+    const whoIS = this.props.location.state;
+    this.getActiveBuys(whoIS);
   }
 
   convertPhone = (rawPhone) => {
@@ -24,9 +25,15 @@ export default class Mybuys extends Component {
     return result;
   }
 
-  getActiveBuys = () => {
-    const userID = "5ca2ca70e39d1242742e4563";
-    API.getUserBuys(userID)
+  // getUserID = () => {
+  //   console.log("getUserID", whoIS);
+  //   this.setState({userID: whoIS});
+  //   console.log("this should be state ", this.state.userID);
+  //   this.getActiveBuys(this.state.userID);
+  // }
+
+  getActiveBuys = (whoIS) => {
+    API.getUserBuys(whoIS)
       .then(res => {
         if (res.data.status === "error") {
           console.log("No active buys for the user");

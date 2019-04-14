@@ -15,11 +15,11 @@ export default {
     });
   },
   getUserPosts: function (curruser) {
-    console.log("Current user in API getUserPosts is" + curruser);
+    console.log("Current user in API getUserPosts is " + curruser);
     return axios.get("/api/post/" + curruser)
   },
   getUserBuys: function (curruser) {
-    console.log("Current user in API getUserBuys is" + curruser);
+    console.log("Current user in API getUserBuys is " + curruser);
     return axios.get("/api/buy/" + curruser)
   },
   buyPost: function (buyerUpdate) {

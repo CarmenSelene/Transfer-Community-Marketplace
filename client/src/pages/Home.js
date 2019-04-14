@@ -1,8 +1,7 @@
 import React from "react";
 import Login from "../components/Login/Login";
-import auth from "../components/auth";
 
-export const Home = (props) => {
+export const Home = () => {
     return (
         <div className="wrapper">
             {/* <br /><br />

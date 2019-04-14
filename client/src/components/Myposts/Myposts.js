@@ -18,6 +18,10 @@ export default class Myposts extends Component {
     this.getActivePosts();
   }
 
+  componentDidUpdate() {
+    console.log("activepost: ", this.state.activePost);
+  }
+
   convertPhone = (rawPhone) => {
     var insert = "-";
     var result = [rawPhone.slice(0, 3), insert, rawPhone.slice(3, 6), insert, rawPhone.slice(6, 10)].join('');
@@ -25,7 +29,7 @@ export default class Myposts extends Component {
   }
 
   getActivePosts = () => {
-    const userID = "5ca2ca70e39d1242742e4563";
+    const userID = "5c9c186764cd78002a67a37f";
     API.getUserPosts(userID)
       .then(res => {
         if (res.data.status === "error") {

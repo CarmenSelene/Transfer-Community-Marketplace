@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import auth from "../../components/auth";
-import {Landingdata} from "../Landing/Landingdata";
+import { Landingdata } from "../Landing/Landingdata";
 import "./Landing.css";
 
 export const Landing = (props) => {
@@ -12,7 +12,7 @@ export const Landing = (props) => {
             <button
                 onClick={() => {
                     auth.login(() => {
-                        props.history.push("/landing");
+                        props.history.push("/landing/");
                     });
                 }}
             >
@@ -35,5 +35,6 @@ export const Landing = (props) => {
                 </div>
                 <Landingdata {...props} />
             </div>
-        </div>)
+        </div>
+    )
 }

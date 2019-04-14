@@ -56,7 +56,7 @@ class Login extends Component {
                     this.authenticated = true;
                     console.log("authenticated is  ", + this.authenticated);
                     auth.login(() => {
-                        this.props.history.push("/landing");
+                        this.props.history.push("/landing", res.data._id);
                     });            
                 }
             }).catch(err => console.log(err));

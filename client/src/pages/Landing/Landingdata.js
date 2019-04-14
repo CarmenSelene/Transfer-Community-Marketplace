@@ -13,5 +13,6 @@ export const Landingdata = (props) => {
                     <Mybuys {...props} />
                 </div>
             </div>
-        </div>)
+        </div>
+    )
 }
