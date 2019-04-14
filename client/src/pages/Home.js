@@ -5,7 +5,7 @@ import auth from "../components/auth";
 export const Home = (props) => {
     return (
         <div className="wrapper">
-            <br /><br />
+            {/* <br /><br />
             <button
                 onClick={() => {
                     auth.login(() => {
@@ -23,7 +23,7 @@ export const Home = (props) => {
                 }}
             >
                 Logout
-            </button>
+            </button> */}
             <Login />
         </div>
     );

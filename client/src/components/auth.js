@@ -1,4 +1,3 @@
-import API from "../utils/API";
 
 class Auth {
     constructor() {
