@@ -25,16 +25,6 @@ export default class Makepost extends Component {
         this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
     }
 
-    componentDidMount() {
-        const getUrl = window.location.href;
-        const parseUrl = getUrl.split("/");
-        const verifyUser = parseUrl[parseUrl.length - 1];
-        if (verifyUser === "landing") {
-            alert("please log in");
-        } else
-            this.setState({ currentUser: [verifyUser] });
-    }
-
     handleInputChange = e => {
         const name = e.target.name;
         const value = e.target.value;

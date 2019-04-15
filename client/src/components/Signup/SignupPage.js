@@ -15,7 +15,7 @@ export default class SignupPage extends Component {
             location: "",
             password: "",
             confirmpassword: "",
-            userCheck: []
+            formData: []
         };
         this.resetform = this.resetform.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -40,7 +40,7 @@ export default class SignupPage extends Component {
                 location: this.state.location
             }
             e.preventDefault();
-            this.setState({ userCheck: newUser });
+            this.setState({ formData: newUser });
             this.submitNewUser(newUser);
         } else {
             alert("passwords do not match");
@@ -66,7 +66,7 @@ export default class SignupPage extends Component {
             location: "",
             password: "",
             confirmpassword: "",
-            userCheck: {}
+            formData: {}
         });
     }
 

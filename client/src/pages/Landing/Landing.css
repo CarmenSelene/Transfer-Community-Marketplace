@@ -9,7 +9,13 @@
     text-align: center;
     margin: auto;
     width: 90%;
-    padding: 5px;
+    padding: 15px;
+}
+
+hr.landingHR {
+    height: 1px;
+    border: 1px dashed white;
+    margin: 1px;
 }
 
 .landingBody {

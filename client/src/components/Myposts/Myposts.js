@@ -8,18 +8,15 @@ export default class Myposts extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activePost: []
+      activePosts: []
     };
     this.getActivePosts = this.getActivePosts.bind(this);
     this.convertPhone = this.convertPhone.bind(this);
   }
 
   componentDidMount() {
-    this.getActivePosts();
-  }
-
-  componentDidUpdate() {
-    console.log("activepost: ", this.state.activePost);
+    const whoIS = this.props.location.state;
+    this.getActivePosts(whoIS);
   }
 
   convertPhone = (rawPhone) => {
@@ -28,15 +25,14 @@ export default class Myposts extends Component {
     return result;
   }
 
-  getActivePosts = () => {
-    const userID = "5c9c186764cd78002a67a37f";
-    API.getUserPosts(userID)
+  getActivePosts = (whoIS) => {
+    API.getUserPosts(whoIS)
       .then(res => {
         if (res.data.status === "error") {
-          console.log("No active posts for the user");
+          console.log("No active buys for the user");
           throw new Error(res.data.message);
         }
-        this.setState({ activePost: res.data });
+        this.setState({ activePosts: res.data });
       })
       .catch(err => console.log(err));
   }
@@ -45,9 +41,9 @@ export default class Myposts extends Component {
     return (
       <Container className="myBox m-2">
         <span><h3 className="m-2 p-2 bg-dark text-light">Outgoing Transfers</h3></span>
-        {this.state.activePost.length ? (
+        {this.state.activePosts.length ? (
           <div className="list-group">
-            {this.state.activePost.map(res => (
+            {this.state.activePosts.map(res => (
               <span className="list-group-item list-group-item-action flex-column align-items-start my-2" key={res._id}>
                 <div className="d-flex w-100 justify-content-between">
                   <h5 className="mb-1 text-justify text-weight-bold">{res.description}</h5>

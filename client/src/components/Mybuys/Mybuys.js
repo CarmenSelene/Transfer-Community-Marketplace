@@ -25,13 +25,6 @@ export default class Mybuys extends Component {
     return result;
   }
 
-  // getUserID = () => {
-  //   console.log("getUserID", whoIS);
-  //   this.setState({userID: whoIS});
-  //   console.log("this should be state ", this.state.userID);
-  //   this.getActiveBuys(this.state.userID);
-  // }
-
   getActiveBuys = (whoIS) => {
     API.getUserBuys(whoIS)
       .then(res => {
