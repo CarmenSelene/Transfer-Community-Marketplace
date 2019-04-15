@@ -1,29 +1,7 @@
-# Create React Express App
+## Transfer Community Marketplace
 
-## About This Boilerplate
+Our app helps connect communities by creating local markets centered around subway stops. Log in to the app to see if your neighbour is selling muffins today, or to pick up a used Xbox for $20 two blocks down. Save money, make money, *connect* with your community.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+This app is a full-stack MERN application By Saryn Caister and Pavani Vithala.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
-
-## Starting the app locally
-
-Start by installing front and backend dependencies. While in this directory, run the following command:
-
-```
-npm install
-```
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-npm start
-```
-
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+# Deployed At: https://obscure-brushlands-10510.herokuapp.com/
