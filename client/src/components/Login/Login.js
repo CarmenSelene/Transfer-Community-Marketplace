@@ -57,7 +57,7 @@ class Login extends Component {
                     console.log("authenticated is  ", + this.authenticated);
                     auth.login(() => {
                         this.props.history.push("/landing", res.data._id);
-                    });            
+                    });
                 }
             }).catch(err => console.log(err));
     }
@@ -73,9 +73,10 @@ class Login extends Component {
     render() {
         return (
             <div className="wrapper">
-                <div className="landingBar bg-dark">
-                    <h3 className="text-light d-inline">Need To Register?</h3>
-                    <Link to={'/signup'}><Button className="homepageToggleButton text-light d-inline">Create Account</Button></Link>
+                <div class="d-flex bg-dark text-light">
+                    <div class="p-2 m-auto">
+                        <Link to={'/signup'}><Button className="homepageToggleButton">Create Account</Button></Link>
+                    </div>
                 </div>
                 <Loginform
                     email={this.state.email}

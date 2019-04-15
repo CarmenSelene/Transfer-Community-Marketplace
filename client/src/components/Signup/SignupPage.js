@@ -73,9 +73,10 @@ export default class SignupPage extends Component {
     render() {
         return (
             <div className="wrapper">
-                <div className="landingBar bg-dark">
-                    <h3 className="text-light d-inline">Already A Member?</h3>
-                    <Link to={'/'}><Button className="homepageToggleButton text-light d-inline">Go To Login</Button></Link>
+                <div class="d-flex bg-dark text-light">
+                    <div class="p-2 m-auto">
+                        <Link to={'/'}><Button className="homepageToggleButton">Go To Login</Button></Link>
+                    </div>
                 </div>
                 <Newuserform
                     firstname={this.state.firstname}

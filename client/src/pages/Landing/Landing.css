@@ -27,5 +27,12 @@ hr.landingHR {
     min-height: 22vh;
 }
 
+.landingToggleButton {
+    margin: 2vh;
+    border-radius: 15px;
+    color: white;
+    padding: 10px 40px;
+  }
+
 
 

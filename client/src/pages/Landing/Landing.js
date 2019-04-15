@@ -10,8 +10,8 @@ export const Landing = (props) => {
         <div className="wrapper">
             <div class="d-flex bg-dark text-light">
                 <div class="p-2">
-                    <Link to={'/landing/makepost'}><Button className="homepageToggleButton">Create Transfer</Button></Link>
-                    <Link to={'/landing/searchpost'}><Button className="homepageToggleButton">Search Transfers</Button></Link>
+                    <Link to={'/landing/makepost'}><Button className="landingToggleButton">Create Transfer</Button></Link>
+                    <Link to={'/landing/searchpost'}><Button className="landingToggleButton">Search Transfers</Button></Link>
                 </div>
                 <div class="ml-auto p-2">
                     <Button className="homepageToggleButton text-light d-inline" onClick={() => {

@@ -25,7 +25,7 @@ export const Loginform = (props) => {
           placeholder="Password"
           id="password"
         />
-        <button onClick={props.handleLoginFormSubmit} className="submitButton">
+        <button onClick={props.handleLoginFormSubmit} className="submitButton m-3">
           Login
         </button>
       </div>
