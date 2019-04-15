@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import auth from "../../components/auth";
-import Searchresults from "../../components/Seachresults/Searchresults";
-import SubwayList from "../../components/SubwayList/SubwayList";
-import CategoryList from "../../components/CategoryList/CategoryList";
-import API from "../../utils/API";
+import Searchresults from "../../../components/Seachresults/Searchresults";
+import SubwayList from "../../../components/SubwayList/SubwayList";
+import CategoryList from "../../../components/CategoryList/CategoryList";
+import auth from "../../../components/auth";
+import API from "../../../utils/API";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./Searchpost.css";
@@ -65,58 +65,60 @@ export default class Searchpost extends Component {
     render() {
         return (
             <div className="wrapper">
-                <span className="balancePageSwitch bg-dark text-light">
-                    <button
-                        onClick={() => {
-                            auth.login(() => {
-                                props.history.push("/makepost");
-                            });
-                        }}
-                    >
-                        MakePost
-            </button>
-                    <button
-                        onClick={() => {
-                            auth.login(() => {
-                                props.history.push("/searchpost");
-                            });
-                        }}
-                    >
-                        SearchPost
-            </button>
-                    <Form className="searchInputForm">
-                        <div className="formItem">
-                            <Form.Control as="select"
-                                onChange={this.handleInputChange}
-                                value={this.category}
-                                name="category"
-                                type="text"
-                                className="form-control d-inline-flex"
-                                id="category">
-                                <option defaultValue="Category">Category</option>
-                                {CategoryList.map(res => (<option key={res} value={res}>{res}</option>))}
-                            </Form.Control>
-                        </div>
-                        <div className="formItem">
-                            <Form.Control as="select"
-                                onChange={this.handleInputChange}
-                                value={this.location}
-                                name="location"
-                                type="text"
-                                className="form-control d-inline"
-                                id="location">
-                                <option defaultValue="Nearest Subway">Nearest Subway</option>
-                                {SubwayList.map(res => (<option key={res} value={res}>{res}</option>))}
-                            </Form.Control>
-                        </div>
-                        <div className="formItem">
-                            <Button variant="primary" className="d-inline searchSubmit"
-                                onClick={this.handleSearchPostsFormSubmit} >
-                                Submit Search
+                <div class="d-flex bg-dark text-light">
+                    <div class="mr-auto p-2">
+                        <Form className="searchInputForm ">
+                            <div className="formItem">
+                                <Form.Control as="select"
+                                    onChange={this.handleInputChange}
+                                    value={this.category}
+                                    name="category"
+                                    type="text"
+                                    className="form-control d-inline"
+                                    id="category">
+                                    <option defaultValue="Category">Category</option>
+                                    {CategoryList.map(res => (<option key={res} value={res}>{res}</option>))}
+                                </Form.Control>
+                            </div>
+                            <div className="formItem">
+                                <Form.Control as="select"
+                                    onChange={this.handleInputChange}
+                                    value={this.location}
+                                    name="location"
+                                    type="text"
+                                    className="form-control d-inline"
+                                    id="location">
+                                    <option defaultValue="Nearest Subway">Nearest Subway</option>
+                                    {SubwayList.map(res => (<option key={res} value={res}>{res}</option>))}
+                                </Form.Control>
+                            </div>
+                            <div className="formItem">
+                                <Button variant="primary" className="d-inline searchSubmit"
+                                    onClick={this.handleSearchPostsFormSubmit} >
+                                    Submit Search
                             </Button>
-                        </div>
-                    </Form>
-                </span>
+                            </div>
+                        </Form>
+                    </div>
+                    <div class="p-2">
+                        <Button className="homepageToggleButton text-light" onClick={() => {
+                            auth.login(() => {
+                                this.props.history.push("/landing/makePost");
+                            });
+                        }}
+                        >
+                            Go To Make Post</Button>
+                    </div>
+                    <div class="p-2">
+                        <Button className="homepageToggleButton text-light" onClick={() => {
+                            auth.logout(() => {
+                                this.props.history.push("/");
+                            });
+                        }}
+                        >
+                            Logout</Button>
+                    </div>
+                </div>
                 <Searchresults results={this.state.results} buyItem={this.buyItem} />
             </div>
         );

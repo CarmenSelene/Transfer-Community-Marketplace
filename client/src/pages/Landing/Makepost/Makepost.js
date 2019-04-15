@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import auth from "../../components/auth";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import SubwayList from "../../components/SubwayList/SubwayList";
-import CategoryList from "../../components/CategoryList/CategoryList";
-import API from "../../utils/API";
+import auth from "../../../components/auth";
+import SubwayList from "../../../components/SubwayList/SubwayList";
+import CategoryList from "../../../components/CategoryList/CategoryList";
+import API from "../../../utils/API";
 import "./Makepost.css";
 const moment = require("moment");
 
@@ -71,27 +71,25 @@ export default class Makepost extends Component {
     render() {
         return (
             <div className="wrapper">
-                <span className="balancePageSwitch bg-dark text-light">
-                    <button
-                        onClick={() => {
+                <div class="d-flex bg-dark text-light">
+                    <div class="ml-auto p-2">
+                        <Button className="homepageToggleButton text-light d-inline mr-5" onClick={() => {
                             auth.login(() => {
-                                props.history.push("/makepost");
+                                this.props.history.push("/landing/searchPost");
                             });
                         }}
-                    >
-                        MakePost
-            </button>
-                    <button
-                        onClick={() => {
-                            auth.login(() => {
-                                props.history.push("/searchpost");
+                        >
+                             Go To Search </Button>
+                        <Button className="homepageToggleButton text-light d-inline" onClick={() => {
+                            auth.logout(() => {
+                                this.props.history.push("/");
                             });
                         }}
-                    >
-                        SearchPost
-            </button>
-                </span>
-                <div className="makePostPageBox bg-dark">
+                        >
+                            Logout</Button>
+                    </div>
+                </div>
+                <div className="makePostPageBox m-2 mt-4 bg-dark">
                     <Form className="m-2 p-4 bg-dark text-light">
                         <h2 className="makePostTitle">Post New Item</h2>
                         <Form.Control as="select"
