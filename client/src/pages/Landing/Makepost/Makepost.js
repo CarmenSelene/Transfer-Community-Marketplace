@@ -59,11 +59,13 @@ export default class Makepost extends Component {
             console.log("Post Status: " + res.statusText);
             console.log(res);
         });
+        alert("Post Successful");
         this.setState({
             category: "",
             location: "",
             description: "",
-            price: { type: Number, default: '0' },
+            contactNo: "",
+            price: "",
             expiryDate: `${moment().add(8, 'days').format("YYYY-MM-DD")}`,
         });
     };

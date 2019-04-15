@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Newuserform from "../../components/Signup/Newuserform/Newuserform";
 import Button from 'react-bootstrap/Button';
+import auth from "../../components/auth";
 import API from "../../utils/API";
 import "./SignupPage.css";
 
@@ -42,6 +43,9 @@ export default class SignupPage extends Component {
             e.preventDefault();
             this.setState({ formData: newUser });
             this.submitNewUser(newUser);
+            auth.logout(() => {
+                this.props.history.push("/");
+            });
         } else {
             alert("passwords do not match");
             this.setState({ password: "", confirmpassword: "" });

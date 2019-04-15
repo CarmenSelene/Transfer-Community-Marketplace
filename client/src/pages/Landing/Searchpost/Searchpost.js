@@ -58,7 +58,10 @@ export default class Searchpost extends Component {
             buyerId: user
         }
         API.buyPost(buyerUpdate)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                alert("Purchase Successful");
+            })
             .catch(err => console.log(err));
     };
 
