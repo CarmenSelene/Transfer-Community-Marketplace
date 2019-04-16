@@ -4,9 +4,10 @@ import Form from 'react-bootstrap/Form';
 import auth from "../../../components/auth";
 import SubwayList from "../../../components/SubwayList/SubwayList";
 import CategoryList from "../../../components/CategoryList/CategoryList";
+import Datepicker from "../../../components/Datepicker/Datepicker";
 import API from "../../../utils/API";
 import "./Makepost.css";
-const moment = require("moment");
+// const moment = require("moment");
 
 export default class Makepost extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ export default class Makepost extends Component {
             description: "",
             contactNo: "",
             price: "",
-            expiryDate: `${moment().add(8, 'days').format("YYYY-MM-DD")}`,
+            expiryDate: "",
             currentUser: "",
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -66,7 +67,7 @@ export default class Makepost extends Component {
             description: "",
             contactNo: "",
             price: "",
-            expiryDate: `${moment().add(8, 'days').format("YYYY-MM-DD")}`,
+            expiryDate: ""
         });
     };
 
@@ -135,14 +136,20 @@ export default class Makepost extends Component {
                             name="price"
                             placeholder="$ Price"
                         />
-                        <Form.Control
+                        <Datepicker label="Expiry Date" 
+                            id="expiryDate"
+                            className="bg-light my-2"
+                            onChange={this.handleInputChange}
+                            value={this.state.expiryDate}
+                            name="Expiry Date" />
+                        {/* <Form.Control
                             type="date"
                             id="expiryDate"
                             className="bg-light my-2"
                             onChange={this.handleInputChange}
                             value={this.state.expiryDate}
                             name="Expiry Date"
-                        />
+                        /> */}
                         <Form.Control as="textarea" rows="5"
                             id="description"
                             className="bg-light my-2"
