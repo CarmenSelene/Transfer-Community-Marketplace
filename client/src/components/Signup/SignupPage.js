@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Newuserform from "../../components/Signup/Newuserform/Newuserform";
+import Dialog from "../../components/Dialog/Dialog";
 import Button from 'react-bootstrap/Button';
 import auth from "../../components/auth";
 import API from "../../utils/API";
@@ -16,9 +17,11 @@ export default class SignupPage extends Component {
             location: "",
             password: "",
             confirmpassword: "",
-            formData: []
+            formData: [],
+            isOpen: false,
+            modalText: ""
         };
-        this.resetform = this.resetform.bind(this);
+        //this.resetform = this.resetform.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNewUserFormSubmit = this.handleNewUserFormSubmit.bind(this);
     }
@@ -47,8 +50,9 @@ export default class SignupPage extends Component {
                 this.props.history.push("/");
             });
         } else {
-            alert("passwords do not match");
-            this.setState({ password: "", confirmpassword: "" });
+            //alert("passwords do not match");
+            this.setState({ password: "", confirmpassword: "",isOpen: true,
+            modalText: "Check your sign in details.User creation failed" });
         }
     }
 
@@ -59,10 +63,7 @@ export default class SignupPage extends Component {
                 console.log("res");
             })
             .catch(err => console.log(err));
-        this.resetform();
-    }
-
-    resetform = () => {
+        //this.resetform();
         this.setState({
             firstname: "",
             lastname: "",
@@ -70,15 +71,31 @@ export default class SignupPage extends Component {
             location: "",
             password: "",
             confirmpassword: "",
-            formData: {}
+            formData: {},
+            isOpen: true,
+            modalText: "User Created Successfully"
         });
     }
+
+    /*resetform = () => {
+        this.setState({
+            firstname: "",
+            lastname: "",
+            email: "",
+            location: "",
+            password: "",
+            confirmpassword: "",
+            formData: {},
+            isOpen: true,
+            modalText: "User Created Successfully"
+        });
+    }*/
 
     render() {
         return (
             <div className="wrapper">
-                <div class="d-flex bg-dark text-light">
-                    <div class="p-2 m-auto">
+                <div className="d-flex bg-dark text-light">
+                    <div className="p-2 m-auto">
                         <Link to={'/'}><Button className="homepageToggleButton">Go To Login</Button></Link>
                     </div>
                 </div>
@@ -92,6 +109,9 @@ export default class SignupPage extends Component {
                     handleNewUserFormSubmit={this.handleNewUserFormSubmit}
                     handleInputChange={this.handleInputChange}
                 />
+                <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
+                    {this.state.modalText}
+                </Dialog>
             </div>
         )
     }

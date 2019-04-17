@@ -5,8 +5,11 @@ import auth from "../../../components/auth";
 import SubwayList from "../../../components/SubwayList/SubwayList";
 import CategoryList from "../../../components/CategoryList/CategoryList";
 import Datepicker from "../../../components/Datepicker/Datepicker";
+import Dialog from "../../../components/Dialog/Dialog";
 import API from "../../../utils/API";
 import "./Makepost.css";
+//import { ifError } from "assert";
+
 const moment = require("moment");
 
 export default class Makepost extends Component {
@@ -21,6 +24,8 @@ export default class Makepost extends Component {
             price: "",
             expiryDate: moment().format("YYYY MM DD"),
             currentUser: "5c9c186764cd78002a67a37f",
+            isOpen:false,
+            modalText:""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
@@ -55,22 +60,34 @@ export default class Makepost extends Component {
         }
         console.log("newPost");
         API.savePost(newPost).then(res => {
+            console.log(res.status);
             if (res.status !== 200) {
-                throw new Error(res.data.message);
-            }
-            console.log("Post Status: " + res.statusText);
-            console.log(res);
+               // throw new Error(res.data.message);
+                this.setState({
+                isOpen: true,
+                modalText:res.data.message
+                });
+                console.log(this.state.isOpen);
+                console.log(this.state.modalText);
+             }
+             this.setState({
+                category: "",
+                location: "",
+                description: "",
+                contactNo: "",
+                price: "",
+                expiryDate: moment().format("YYYY MM DD"),
+                isOpen: true,
+                modalText:"Transfer Submitted Successfully"
+            });
+            
         });
-        alert("Post Successful");
-        this.setState({
-            category: "",
-            location: "",
-            description: "",
-            contactNo: "",
-            price: "",
-            expiryDate: moment().format("YYYY MM DD")
-        });
+        
+        
     };
+
+   
+
 
     render() {
         return (
@@ -96,6 +113,9 @@ export default class Makepost extends Component {
                     </div>
                 </div>
                 <div className="makePostPageBox m-2 mt-4 bg-dark">
+                <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
+                        {this.state.modalText}
+                    </Dialog>
                     <Form className="m-2 p-4 bg-dark text-light">
                         <h2 className="makePostTitle">Post New Item</h2>
                         <Form.Control as="select"
@@ -164,6 +184,7 @@ export default class Makepost extends Component {
                             onClick={this.handleNewPostsFormSubmit}
                         >Post Item</Button>
                     </Form>
+                  
                 </div>
             </div>
         );
