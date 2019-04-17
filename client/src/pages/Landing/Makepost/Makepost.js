@@ -52,6 +52,7 @@ export default class Makepost extends Component {
             expiryDate: reqexpiryDate,
             User: requserId
         }
+        console.log("newPost");
         API.savePost(newPost).then(res => {
             if (res.status !== 200) {
                 throw new Error(res.data.message);
