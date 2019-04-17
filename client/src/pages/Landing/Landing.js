@@ -8,12 +8,12 @@ import "./Landing.css";
 export const Landing = (props) => {
     return (
         <div className="wrapper">
-            <div class="d-flex bg-dark text-light">
-                <div class="p-2">
+            <div className="d-flex bg-dark text-light">
+                <div className="p-2">
                     <Link to={'/landing/makepost'}><Button className="landingToggleButton">Create Transfer</Button></Link>
                     <Link to={'/landing/searchpost'}><Button className="landingToggleButton">Search Transfers</Button></Link>
                 </div>
-                <div class="ml-auto p-2">
+                <div className="ml-auto p-2">
                     <Button className="homepageToggleButton text-light d-inline" onClick={() => {
                         auth.logout(() => {
                             props.history.push("/");

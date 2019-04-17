@@ -68,8 +68,8 @@ export default class Searchpost extends Component {
     render() {
         return (
             <div className="wrapper">
-                <div class="d-flex bg-dark text-light">
-                    <div class="p-2">
+                <div className="d-flex bg-dark text-light">
+                    <div className="p-2">
                         <Button className="landingToggleButton text-light" onClick={() => {
                             auth.login(() => {
                                 this.props.history.push("/landing/makePost");
@@ -78,7 +78,7 @@ export default class Searchpost extends Component {
                         >
                             Go To Make Post</Button>
                     </div>
-                    <div class="m-auto p-2">
+                    <div className="m-auto p-2">
                         <Form className="searchInputForm ">
                             <div className="formItem">
                                 <Form.Control as="select"
@@ -112,7 +112,7 @@ export default class Searchpost extends Component {
                             </div>
                         </Form>
                     </div>
-                    <div class="p-2">
+                    <div className="p-2">
                         <Button className="homepageToggleButton text-light" onClick={() => {
                             auth.logout(() => {
                                 this.props.history.push("/");

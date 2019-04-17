@@ -22,7 +22,7 @@ export const DatePickerLabel = styled(Label)`
   font-size: 0.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #06c;
+  color: white;
   border-right: 2px solid #06c;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ export const DatePickerInput = styled(Input)`
   padding: 1rem 2rem;
   font-weight: 500;
   font-size: 1rem;
-  color: #333;
+  color: white;
   box-shadow: none;
   border: none;
   text-align: center;
@@ -43,7 +43,7 @@ export const DatePickerInput = styled(Input)`
   display: flex;
   align-items: center;
   ::placeholder {
-    color: #999;
+    color: white;
     font-size: 0.9rem;
   }
 `;

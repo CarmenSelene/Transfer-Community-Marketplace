@@ -74,8 +74,8 @@ export default class Makepost extends Component {
     render() {
         return (
             <div className="wrapper">
-                <div class="d-flex bg-dark text-light">
-                    <div class="p-2">
+                <div className="d-flex bg-dark text-light">
+                    <div className="p-2">
                         <Button className="landingToggleButton text-light d-inline" onClick={() => {
                             auth.login(() => {
                                 this.props.history.push("/landing/searchPost");
@@ -84,7 +84,7 @@ export default class Makepost extends Component {
                         >
                             Go To Search </Button>
                     </div>
-                    <div class="ml-auto p-2">
+                    <div className="ml-auto p-2">
                         <Button className="homepageToggleButton text-light d-inline" onClick={() => {
                             auth.logout(() => {
                                 this.props.history.push("/");
