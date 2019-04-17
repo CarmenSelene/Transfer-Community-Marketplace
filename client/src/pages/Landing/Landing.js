@@ -10,7 +10,12 @@ export const Landing = (props) => {
         <div className="wrapper">
             <div className="d-flex bg-dark text-light">
                 <div className="p-2">
-                    <Link to={'/landing/makepost'}><Button className="landingToggleButton">Create Transfer</Button></Link>
+                    <Link to={{
+                        pathname: '/landing/makepost',
+                        state: {
+                            userId: props.history.location.state
+                        }
+                    }}><Button className="landingToggleButton">Create Transfer</Button></Link>
                     <Link to={'/landing/searchpost'}><Button className="landingToggleButton">Search Transfers</Button></Link>
                 </div>
                 <div className="ml-auto p-2">

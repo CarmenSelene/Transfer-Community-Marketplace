@@ -31,9 +31,9 @@ export default class Makepost extends Component {
         this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
     }
 
-    componentDidMount() {
+    componentDidCatch() {
         const initialDate = moment().format("YYYY MM DD").toString();
-        const whoIS = this.props.location.state;
+        const whoIS = this.props.history.location.state.userId;
         const initialState = {
             userId: whoIS,
             category: "",
@@ -42,11 +42,11 @@ export default class Makepost extends Component {
             contactNo: "",
             price: "",
             expiryDate: initialDate,
-            currentUser: "",
+            currentUser: whoIS,
             isOpen: false,
             modalText: ""
         }
-        this.setState({ initialState });
+        this.setState( initialState );
         console.log("UserId from ComponenetDidMount from MakePost: ", whoIS);
     }
 
