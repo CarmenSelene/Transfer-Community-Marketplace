@@ -16,7 +16,13 @@ export const Landing = (props) => {
                             userId: props.history.location.state
                         }
                     }}><Button className="landingToggleButton">Create Transfer</Button></Link>
-                    <Link to={'/landing/searchpost'}><Button className="landingToggleButton">Search Transfers</Button></Link>
+
+                    <Link to={{
+                        pathname: '/landing/searchpost',
+                    state: {
+                        userId: props.history.location.state
+                    }
+                    }}><Button className="landingToggleButton">Search Transfers</Button></Link>
                 </div>
                 <div className="ml-auto p-2">
                     <Button className="homepageToggleButton text-light d-inline" onClick={() => {

@@ -14,27 +14,9 @@ const moment = require("moment");
 export default class Makepost extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            userId: "",
-            category: "",
-            location: "",
-            description: "",
-            contactNo: "",
-            price: "",
-            expiryDate: "",
-            currentUser: "",
-            isOpen: false,
-            modalText: ""
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleDateInputChange = this.handleDateInputChange.bind(this);
-        this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
-    }
-
-    componentDidCatch() {
         const initialDate = moment().format("YYYY MM DD").toString();
         const whoIS = this.props.history.location.state.userId;
-        const initialState = {
+        this.state = {
             userId: whoIS,
             category: "",
             location: "",
@@ -45,9 +27,28 @@ export default class Makepost extends Component {
             currentUser: whoIS,
             isOpen: false,
             modalText: ""
-        }
-        this.setState( initialState );
-        console.log("UserId from ComponenetDidMount from MakePost: ", whoIS);
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleDateInputChange = this.handleDateInputChange.bind(this);
+        this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        
+        /*this.setState({
+            userId: whoIS,
+            category: "",
+            location: "",
+            description: "",
+            contactNo: "",
+            price: "",
+            expiryDate: initialDate,
+            currentUser: whoIS,
+            isOpen: false,
+            modalText: ""
+         });
+        //this.setState(initialState);*/
+        console.log("UserId from ComponenetDidMount from MakePost: ", this.state.currentUser);
     }
 
     handleInputChange = e => {
@@ -64,6 +65,7 @@ export default class Makepost extends Component {
         this.setState({
             "expiryDate": value
         });
+        console.log(this.state.expiryDate);
     };
 
     handleNewPostsFormSubmit = (e) => {
@@ -163,9 +165,9 @@ export default class Makepost extends Component {
                         <Datepicker label="Expiry Date"
                             id="expiryDate"
                             className="bg-light my-2"
-                            /* onChange={this.handleDateChange} */
-                            /* value={this.state.expiryDate} */
-                            name="expiryDate" />
+                           /* onChange={this.handleDateChange} 
+                             value={this.state.expiryDate} 
+                            name="expiryDate"*/ />
                         {/* <Form.Control
                             type="date"
                             id="expiryDate"

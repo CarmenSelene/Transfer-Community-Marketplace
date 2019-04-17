@@ -10,7 +10,7 @@ class Datepicker extends React.Component {
 
   toggleCalendar = () => this.setState({ calendarOpen: !this.state.calendarOpen })
 
-  handleChange = evt => evt.preventDefault()
+  handleChange = (evt) => evt.preventDefault()
 
   handleDateChange = date => {
     const { onDateChanged } = this.props;

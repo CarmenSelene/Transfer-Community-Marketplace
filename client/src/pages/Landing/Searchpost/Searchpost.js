@@ -10,10 +10,11 @@ import "./Searchpost.css";
 export default class Searchpost extends Component {
     constructor(props) {
         super(props);
+        const currUser = this.props.history.location.state.userId;
         this.state = {
             category: "",
             location: "",
-            currentUser: "",
+            currentUser: currUser,
             results: [],
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -22,9 +23,9 @@ export default class Searchpost extends Component {
     }
 
     componentDidMount() {
-        const whoIS = this.props.location.state;
-        console.log("UserId from ComponenetDidMount from SearchPost: " + whoIS);
-        console.log("props.location.state from Searchpost: " + this.props.location.state);
+        //const whoIS = this.props.location.state;
+        console.log("UserId from ComponenetDidMount from SearchPost: " + this.state.currentUser);
+        
     }
 
     handleInputChange = e => {

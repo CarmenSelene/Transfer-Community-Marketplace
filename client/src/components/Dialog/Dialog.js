@@ -9,7 +9,7 @@ let dialogStyles = {
     top: '50%',
     transform: 'translate(-50%,-50%)',
     zIndex: '999',
-    backgroundColor: '#eee',
+    backgroundColor: '#008000',
     padding: '10px 20px 40px',
     borderRadius: '8px',
     display: 'flex',
@@ -17,13 +17,13 @@ let dialogStyles = {
 };
 
 let dialogCloseButtonStyles = {
-    marginBottom: '15px',
+    marginBottom: '20px',
     padding: '3px 8px',
     cursor: 'pointer',
     borderRadius: '50%',
     border: 'none',
     width: '30px',
-    height: '30px',
+    height: '40px',
     fontWeight: 'bold',
     alignSelf: 'flex-end'
 };
