@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import auth from "../../../components/auth";
 import SubwayList from "../../../components/SubwayList/SubwayList";
 import CategoryList from "../../../components/CategoryList/CategoryList";
 import Datepicker from "../../../components/Datepicker/Datepicker";
@@ -22,13 +21,33 @@ export default class Makepost extends Component {
             description: "",
             contactNo: "",
             price: "",
-            expiryDate: moment().format("YYYY MM DD"),
-            currentUser: "5c9c186764cd78002a67a37f",
-            isOpen:false,
-            modalText:""
+            expiryDate: "",
+            currentUser: "",
+            isOpen: false,
+            modalText: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleDateInputChange = this.handleDateInputChange.bind(this);
         this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        const initialDate = moment().format("YYYY MM DD").toString();
+        const whoIS = this.props.location.state;
+        const initialState = {
+            userId: whoIS,
+            category: "",
+            location: "",
+            description: "",
+            contactNo: "",
+            price: "",
+            expiryDate: initialDate,
+            currentUser: "",
+            isOpen: false,
+            modalText: ""
+        }
+        this.setState({ initialState });
+        console.log("UserId from ComponenetDidMount from MakePost: ", whoIS);
     }
 
     handleInputChange = e => {
@@ -39,8 +58,18 @@ export default class Makepost extends Component {
         });
     };
 
+    handleDateInputChange = e => {
+        let value = e.target.value;
+        value.pop();
+        this.setState({
+            "expiryDate": value
+        });
+    };
+
     handleNewPostsFormSubmit = (e) => {
         e.preventDefault();
+        console.log("on click currentUser " + this.state.currentUser);
+        console.log("on click userID " + this.state.userId);
         let newPost;
         let reqcategory = this.state.category;
         let reqlocation = this.state.location;
@@ -62,58 +91,32 @@ export default class Makepost extends Component {
         API.savePost(newPost).then(res => {
             console.log(res.status);
             if (res.status !== 200) {
-               // throw new Error(res.data.message);
+                // throw new Error(res.data.message);
                 this.setState({
-                isOpen: true,
-                modalText:res.data.message
+                    isOpen: true,
+                    modalText: res.data.message
                 });
                 console.log(this.state.isOpen);
                 console.log(this.state.modalText);
-             }
-             this.setState({
+            }
+            this.setState({
                 category: "",
                 location: "",
                 description: "",
                 contactNo: "",
                 price: "",
-                expiryDate: moment().format("YYYY MM DD"),
+                expiryDate: "",
                 isOpen: true,
-                modalText:"Transfer Submitted Successfully"
+                modalText: "Transfer Submitted Successfully"
             });
-            
         });
-        
-        
     };
-
-   
-
 
     render() {
         return (
             <div className="wrapper">
-                <div className="d-flex bg-dark text-light">
-                    <div className="p-2">
-                        <Button className="landingToggleButton text-light d-inline" onClick={() => {
-                            auth.login(() => {
-                                this.props.history.push("/landing/searchPost");
-                            });
-                        }}
-                        >
-                            Go To Search </Button>
-                    </div>
-                    <div className="ml-auto p-2">
-                        <Button className="homepageToggleButton text-light d-inline" onClick={() => {
-                            auth.logout(() => {
-                                this.props.history.push("/");
-                            });
-                        }}
-                        >
-                            Logout</Button>
-                    </div>
-                </div>
                 <div className="makePostPageBox m-2 mt-4 bg-dark">
-                <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
+                    <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
                         {this.state.modalText}
                     </Dialog>
                     <Form className="m-2 p-4 bg-dark text-light">
@@ -157,12 +160,12 @@ export default class Makepost extends Component {
                             name="price"
                             placeholder="$ Price"
                         />
-                        <Datepicker label="Expiry Date" 
+                        <Datepicker label="Expiry Date"
                             id="expiryDate"
                             className="bg-light my-2"
-                            onChange={this.handleInputChange}
-                            value={this.state.expiryDate}
-                            name="Expiry Date" />
+                            /* onChange={this.handleDateChange} */
+                            /* value={this.state.expiryDate} */
+                            name="expiryDate" />
                         {/* <Form.Control
                             type="date"
                             id="expiryDate"
@@ -184,7 +187,7 @@ export default class Makepost extends Component {
                             onClick={this.handleNewPostsFormSubmit}
                         >Post Item</Button>
                     </Form>
-                  
+
                 </div>
             </div>
         );

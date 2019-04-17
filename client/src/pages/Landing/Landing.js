@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import auth from "../../components/auth";
-import { Landingdata } from "../Landing/Landingdata";
+import { LandingRoutes } from "../../pages/Landing/LandingRoutes";
 import "./Landing.css";
 
 export const Landing = (props) => {
@@ -24,7 +24,7 @@ export const Landing = (props) => {
                 </div>
             </div>
             <div className="landingBody">
-                <Landingdata {...props} />
+                <LandingRoutes {...props} />
             </div>
         </div>
     )

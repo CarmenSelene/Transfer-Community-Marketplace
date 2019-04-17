@@ -6,8 +6,8 @@ import { Home } from "./pages/Home";
 import { SignupPage } from "./pages/SignupPage";
 import { ContactPage } from "./pages/ContactPage";
 import { Landing } from "./pages/Landing/Landing";
-import Makepost from "./pages/Landing/Makepost/Makepost";
-import Searchpost from "./pages/Landing/Searchpost/Searchpost";
+// import Makepost from "./pages/Landing/Makepost/Makepost";
+// import Searchpost from "./pages/Landing/Searchpost/Searchpost";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
@@ -21,9 +21,9 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/contact" component={ContactPage} />
-            <ProtectedRoute exact path="/landing" component={Landing} />
-            <ProtectedRoute exact path="/landing/makepost" component={Makepost} />
-            <ProtectedRoute exact path="/landing/searchpost" component={Searchpost} />
+            <ProtectedRoute path="/landing" component={Landing} />
+            {/* <ProtectedRoute exact path="/landing/makepost" component={Makepost} />
+            <ProtectedRoute exact path="/landing/searchpost" component={Searchpost} /> */}
             <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
         </div>

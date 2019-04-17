@@ -5,7 +5,7 @@ import * as Styled from "./DatepickerStyles";
 import { isDate, getDateISO } from "../../components/Calendar/CalendarHelper";
 
 class Datepicker extends React.Component {
-  
+
   state = { date: null, calendarOpen: false }
 
   toggleCalendar = () => this.setState({ calendarOpen: !this.state.calendarOpen })
@@ -16,7 +16,9 @@ class Datepicker extends React.Component {
     const { onDateChanged } = this.props;
     const { date: currentDate } = this.state;
     const newDate = date ? getDateISO(date) : null;
-
+    //
+    console.log("this is currentDate on Datepicker " + newDate);
+    //
     currentDate !== newDate &&
       this.setState({ date: newDate, calendarOpen: false }, () => {
         typeof onDateChanged === "function" && onDateChanged(this.state.date);
@@ -44,11 +46,11 @@ class Datepicker extends React.Component {
 
     return (
       <Styled.DatePickerContainer>
-        
+
         <Styled.DatePickerFormGroup>
-          
+
           <Styled.DatePickerLabel>{label || 'Enter Date'}</Styled.DatePickerLabel>
-          
+
           <Styled.DatePickerInput
             type="text"
             value={date ? date.split("-").join(" / ") : ""}
@@ -56,21 +58,21 @@ class Datepicker extends React.Component {
             readOnly="readonly"
             placeholder="YYYY / MM / DD"
           />
-          
+
         </Styled.DatePickerFormGroup>
 
         <Styled.DatePickerDropdown isOpen={calendarOpen} toggle={this.toggleCalendar}>
-          
+
           <Styled.DatePickerDropdownToggle color="transparent" />
 
           <Styled.DatePickerDropdownMenu>
-            { calendarOpen && (
+            {calendarOpen && (
               <Calendar date={date && new Date(date)} onDateChanged={this.handleDateChange} />
             )}
           </Styled.DatePickerDropdownMenu>
-          
+
         </Styled.DatePickerDropdown>
-        
+
       </Styled.DatePickerContainer>
     );
   }

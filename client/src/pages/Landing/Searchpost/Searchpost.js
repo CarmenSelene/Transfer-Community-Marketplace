@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Searchresults from "../../../components/Seachresults/Searchresults";
 import SubwayList from "../../../components/SubwayList/SubwayList";
 import CategoryList from "../../../components/CategoryList/CategoryList";
-import auth from "../../../components/auth";
 import API from "../../../utils/API";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -20,6 +19,12 @@ export default class Searchpost extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSearchPostsFormSubmit = this.handleSearchPostsFormSubmit.bind(this);
         this.getResults = this.getResults.bind(this);
+    }
+
+    componentDidMount() {
+        const whoIS = this.props.location.state;
+        console.log("UserId from ComponenetDidMount from SearchPost: " + whoIS);
+        console.log("props.location.state from Searchpost: " + this.props.location.state);
     }
 
     handleInputChange = e => {
@@ -69,15 +74,6 @@ export default class Searchpost extends Component {
         return (
             <div className="wrapper">
                 <div className="d-flex bg-dark text-light">
-                    <div className="p-2">
-                        <Button className="landingToggleButton text-light" onClick={() => {
-                            auth.login(() => {
-                                this.props.history.push("/landing/makePost");
-                            });
-                        }}
-                        >
-                            Go To Make Post</Button>
-                    </div>
                     <div className="m-auto p-2">
                         <Form className="searchInputForm ">
                             <div className="formItem">
@@ -111,15 +107,6 @@ export default class Searchpost extends Component {
                             </Button>
                             </div>
                         </Form>
-                    </div>
-                    <div className="p-2">
-                        <Button className="homepageToggleButton text-light" onClick={() => {
-                            auth.logout(() => {
-                                this.props.history.push("/");
-                            });
-                        }}
-                        >
-                            Logout</Button>
                     </div>
                 </div>
                 <Searchresults results={this.state.results} buyItem={this.buyItem} />
