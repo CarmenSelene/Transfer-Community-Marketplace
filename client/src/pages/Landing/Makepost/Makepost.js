@@ -7,7 +7,7 @@ import CategoryList from "../../../components/CategoryList/CategoryList";
 import Datepicker from "../../../components/Datepicker/Datepicker";
 import API from "../../../utils/API";
 import "./Makepost.css";
-// const moment = require("moment");
+const moment = require("moment");
 
 export default class Makepost extends Component {
     constructor(props) {
@@ -19,8 +19,8 @@ export default class Makepost extends Component {
             description: "",
             contactNo: "",
             price: "",
-            expiryDate: "",
-            currentUser: "",
+            expiryDate: moment().format("YYYY MM DD"),
+            currentUser: "5c9c186764cd78002a67a37f",
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNewPostsFormSubmit = this.handleNewPostsFormSubmit.bind(this);
@@ -68,7 +68,7 @@ export default class Makepost extends Component {
             description: "",
             contactNo: "",
             price: "",
-            expiryDate: ""
+            expiryDate: moment().format("YYYY MM DD")
         });
     };
 
