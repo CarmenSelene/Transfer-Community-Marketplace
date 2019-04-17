@@ -73,8 +73,8 @@ class Login extends Component {
     render() {
         return (
             <div className="wrapper">
-                <div class="d-flex bg-dark text-light">
-                    <div class="p-2 m-auto">
+                <div className="d-flex bg-dark text-light">
+                    <div className="p-2 m-auto">
                         <Link to={'/signup'}><Button className="homepageToggleButton">Create Account</Button></Link>
                     </div>
                 </div>
