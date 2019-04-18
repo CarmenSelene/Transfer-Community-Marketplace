@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Searchresults from "../../../components/Seachresults/Searchresults";
 import SubwayList from "../../../components/SubwayList/SubwayList";
 import CategoryList from "../../../components/CategoryList/CategoryList";
+import Dialog from "../../../components/Dialog/Dialog";
 import API from "../../../utils/API";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -16,6 +17,8 @@ export default class Searchpost extends Component {
             location: "",
             currentUser: currUser,
             results: [],
+            isOpen: false,
+            modalText: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSearchPostsFormSubmit = this.handleSearchPostsFormSubmit.bind(this);
@@ -49,7 +52,16 @@ export default class Searchpost extends Component {
         API.getPosts(getPost)
             .then(res => this.setState({ results: res.data }))
             .catch(err => console.log(err));
-    };
+        /*console.log(this.state.results);
+        if (this.state.results === []) {
+            this.setState({
+                isOpen: true,
+                modalText: "No transfers with Searched criteria. Modify your Search"
+            });
+            console.log(this.state.isOpen);
+            console.log(this.state.modalText);
+        }*/
+    }
 
     buyItem = (id) => {
         let user = this.state.currentUser;
@@ -60,7 +72,11 @@ export default class Searchpost extends Component {
         API.buyPost(buyerUpdate)
             .then(res => {
                 console.log(res.data)
-                alert("Purchase Successful");
+                this.setState({
+                    isOpen: true,
+                    modalText: "Transfer bought successfully"
+                });
+                // alert("Purchase Successful");
             })
             .catch(err => console.log(err));
     };
@@ -104,6 +120,9 @@ export default class Searchpost extends Component {
                         </Form>
                     </div>
                 </div>
+                <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
+                    {this.state.modalText}
+                </Dialog>
                 <Searchresults results={this.state.results} buyItem={this.buyItem} />
             </div>
         );
