@@ -9,21 +9,21 @@ let dialogStyles = {
     top: '50%',
     transform: 'translate(-50%,-50%)',
     zIndex: '999',
-    backgroundColor: '#008000',
-    padding: '10px 20px 40px',
+    backgroundColor: '#5472a3',
+    padding: '15px',
     borderRadius: '8px',
     display: 'flex',
     flexDirection: 'column'
 };
 
 let dialogCloseButtonStyles = {
-    marginBottom: '20px',
-    padding: '3px 8px',
+    margin: '0px 0px 25px 0px',
+    padding: '0px 0px 25px 0px',
     cursor: 'pointer',
-    borderRadius: '50%',
+    borderRadius: '25%',
     border: 'none',
     width: 'auto',
-    height: '40px',
+    height: '30px',
     fontWeight: 'bold',
     alignSelf: 'flex-end'
 };
@@ -32,8 +32,8 @@ let dialogCloseButtonStyles = {
 class Dialog extends Component {
     render() {
         let dialog = (
-            <div style={dialogStyles}>
-                <button style={dialogCloseButtonStyles} onClick={this.props.onClose}>x</button>
+            <div className="text-dark d-block" style={dialogStyles}>
+                <button style={dialogCloseButtonStyles} className="d-inline-block" onClick={this.props.onClose}>X</button>
 
                 <div>{this.props.children}</div>
             </div>
