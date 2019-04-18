@@ -7,7 +7,7 @@ import Datepicker from "../../../components/Datepicker/Datepicker";
 import Dialog from "../../../components/Dialog/Dialog";
 import API from "../../../utils/API";
 import "./Makepost.css";
-//import { ifError } from "assert";
+
 
 const moment = require("moment");
 
