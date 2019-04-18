@@ -22,7 +22,7 @@ let dialogCloseButtonStyles = {
     cursor: 'pointer',
     borderRadius: '50%',
     border: 'none',
-    width: '30px',
+    width: 'auto',
     height: '40px',
     fontWeight: 'bold',
     alignSelf: 'flex-end'

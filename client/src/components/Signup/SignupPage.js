@@ -21,7 +21,6 @@ export default class SignupPage extends Component {
             isOpen: false,
             modalText: ""
         };
-        //this.resetform = this.resetform.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleNewUserFormSubmit = this.handleNewUserFormSubmit.bind(this);
     }
@@ -50,9 +49,8 @@ export default class SignupPage extends Component {
                 this.props.history.push("/");
             });
         } else {
-            //alert("passwords do not match");
             this.setState({ password: "", confirmpassword: "",isOpen: true,
-            modalText: "Check your sign in details.User creation failed" });
+            modalText: "Please Check Your Info, Signup Failed!" });
         }
     }
 
@@ -63,7 +61,6 @@ export default class SignupPage extends Component {
                 console.log("res");
             })
             .catch(err => console.log(err));
-        //this.resetform();
         this.setState({
             firstname: "",
             lastname: "",
@@ -73,23 +70,9 @@ export default class SignupPage extends Component {
             confirmpassword: "",
             formData: {},
             isOpen: true,
-            modalText: "User Created Successfully"
+            modalText: ""
         });
     }
-
-    /*resetform = () => {
-        this.setState({
-            firstname: "",
-            lastname: "",
-            email: "",
-            location: "",
-            password: "",
-            confirmpassword: "",
-            formData: {},
-            isOpen: true,
-            modalText: "User Created Successfully"
-        });
-    }*/
 
     render() {
         return (

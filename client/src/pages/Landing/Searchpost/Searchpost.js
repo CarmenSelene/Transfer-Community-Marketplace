@@ -22,12 +22,6 @@ export default class Searchpost extends Component {
         this.getResults = this.getResults.bind(this);
     }
 
-    componentDidMount() {
-        //const whoIS = this.props.location.state;
-        console.log("UserId from ComponenetDidMount from SearchPost: " + this.state.currentUser);
-        
-    }
-
     handleInputChange = e => {
         const name = e.target.name;
         const value = e.target.value;

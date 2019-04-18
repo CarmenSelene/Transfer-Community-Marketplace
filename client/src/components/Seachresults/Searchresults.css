@@ -7,9 +7,8 @@
 
 .searchResultsBox {
     width: 80%;
-    min-width: 800px;
+    margin: auto;
     min-height: 50vh;
-    display: inline-block;
 }
 
 @media only screen and (max-width: 991px) {

@@ -10,8 +10,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "@email",
-            password: "",
+            email: "SusanSP@gmail.com",
+            password: "123",
             currentUser: ""
         };
         this.resetform = this.resetform.bind(this);

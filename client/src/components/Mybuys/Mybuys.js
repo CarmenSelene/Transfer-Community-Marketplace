@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "../Grid";
 import API from "../../utils/API";
-import "./My.css";
 const moment = require("moment");
 
 export default class Mybuys extends Component {
@@ -39,18 +38,19 @@ export default class Mybuys extends Component {
 
   render() {
     return (
-      <Container className="myBox m-2">
-        <span><h3 className="m-2 p-2 bg-dark text-light">Incoming Transfers</h3></span>
+      <Container className="d-inline-block m-2 rounded">
+        <span><h3 className="m-3 p-2 bg-dark text-light rounded">Incoming Transfers</h3></span>
         {this.state.activeBuys.length ? (
-          <div className="list-group">
+          <div className="list-group m-3">
             {this.state.activeBuys.map(res => (
-              <span className="list-group-item list-group-item-action flex-column align-items-start my-2" key={res._id}>
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1 text-justify text-weight-bold">{res.description}</h5>
+              <span className="list-group-item list-group-item-action bg-dark" key={res._id}>
+                <div className="d-block">
+                  <h5 className="p-2 py-3 border border-primary text-light">{res.description}</h5>
                 </div>
-                <small className="alert-primary p-2 m-2">Expires: {moment(res.expiryDate).format('MMMM Do YYYY')}</small>
-                <br />
-                <small className="alert-primary p-2 m-2">{this.convertPhone(res.contactNo)}</small>
+                <small className="d-block p-2 m-1 text-danger">Pick Up By:</small>
+                <small className="alert-info d-block p-2 m-1">{moment(res.expiryDate).format('MMMM Do YYYY')}</small>
+                <small className="d-block p-2 m-1 text-danger">Contact Seller:</small>
+                <small className="alert-info d-block p-2 m-2">{this.convertPhone(res.contactNo)}</small>
               </span>
             ))}
           </div>

@@ -1,7 +1,6 @@
 import React from "react";
 import Buybutton from "../Buybutton";
 import { Container } from "../Grid";
-import { List, ListItem } from "../List";
 import "./Searchresults.css";
 const moment = require("moment");
 
@@ -12,42 +11,29 @@ const convertPhone = (rawPhone) => {
 }
 
 const Searchresults = props => {
-  console.log(props);
   return (
-    <span className="searchResultsBox">
-      <Container fluid>
-        <span className="searchTitleBox"><h2 className="m-2 p-2 bg-dark text-light">Search Results</h2></span>
-        {props.results.length ? (
-          <List className="resultsOuterBox">
-            {props.results.map(res => (
-              <ListItem key={res._id}>
-                <List>
-                  <li>
-                    <strong className="postTitle">{res.description}</strong>
-                  </li>
-                  <li>
-                    <strong>$ {res.price}</strong>
-                  </li>
-                  <li>
-                    <strong>{convertPhone(res.contactNo)}</strong>
-                  </li>
-                  <li>
-                    <strong>Expires: {moment(res.expiryDate).format('MMMM Do YYYY')}</strong>
-                  </li>
-                  <li>
-                    <Buybutton buyItem={props.buyItem} r_id={res._id} />
-                  </li>
-                </List>
-              </ListItem>
-            ))}
-          </List>
-        ) : (
-            <div className="wrapper">
-              <h3 className="m-2 p-2 bg-dark text-light">No Results</h3>
-            </div>
-          )}
-      </Container>
-    </span>
+    <Container className="searchResultsBox d-inline-block m-2 rounded">
+      <span><h3 className="m-3 p-2 bg-dark text-light rounded">Search Results</h3></span>
+      {props.results.length ? (
+        <div className="list-group m-3">
+          {props.results.map(res => (
+            <span className="list-group-item list-group-item-action bg-dark" key={res._id}>
+              <div className="d-block">
+                <h5 className="p-2 py-3 border border-primary text-light">{res.description}</h5>
+              </div>
+              <small className="d-block p-2 m-1 text-danger">Expires: {moment(res.expiryDate).format('MMMM Do YYYY')}</small>
+              <small className="d-block p-2 m-1 text-danger">Contact Buyer: {convertPhone(res.contactNo)}</small>
+              <small className="d-block p-2 m-1 text-danger">Price: $ {res.price}</small>
+              <div className="d-block"><Buybutton buyItem={props.buyItem} r_id={res._id} /></div>
+            </span>
+          ))}
+        </div>
+      ) : (
+          <div className="wrapper">
+            <h3 className="m-2 p-2 bg-dark text-light">No Results</h3>
+          </div>
+        )}
+    </Container>
   );
 }
 
